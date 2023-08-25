@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StudyStudio</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+    <string name="img">img</string>
+    <string name="skip_with_seconds">跳过 %d s</string>
+</resources>
