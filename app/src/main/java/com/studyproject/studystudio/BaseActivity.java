@@ -3,6 +3,7 @@ package com.studyproject.studystudio;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.studyproject.studystudio.utils.StatusBarUtil;
 
@@ -21,7 +22,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void setStatusBar() {
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this,R.color.colorPrimary));
     }
 
     @Override

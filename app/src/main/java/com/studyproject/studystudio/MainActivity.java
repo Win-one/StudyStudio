@@ -1,19 +1,13 @@
 package com.studyproject.studystudio;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.SeekBar;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
 import com.studyproject.studystudio.utils.StatusBarUtil;
@@ -50,7 +44,7 @@ public class MainActivity extends BaseActivity {
         movingImageView = navigationView.getHeaderView(0).findViewById(R.id.movingImageView);
         // 设置左上角图标["三" —— "←"]效果
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         // 设置不允许 NavigationMenuView 滚动
@@ -89,14 +83,14 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-        contentLayout.setBackgroundDrawable(null);
-        mToolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, mDrawerLayout, getResources().getColor(R.color.colorPrimary), mAlpha);
+        contentLayout.setBackground(null);
+        mToolbar.setBackgroundColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, mDrawerLayout, ContextCompat.getColor(this,R.color.colorPrimary), mAlpha);
         StatusBarUtil.setColorForDrawerLayout(MainActivity.this, mDrawerLayout, mStatusBarColor, mAlpha);
     }
     @Override
     protected void setStatusBar() {
-        mStatusBarColor = getResources().getColor(R.color.colorPrimary);
+        mStatusBarColor = ContextCompat.getColor(this,R.color.colorPrimary);
         StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawer_layout), mStatusBarColor, mAlpha);
     }
 }
