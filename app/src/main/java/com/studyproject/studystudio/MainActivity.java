@@ -1,18 +1,24 @@
 package com.studyproject.studystudio;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
+import com.studyproject.studystudio.language.LanguageActivity;
 import com.studyproject.studystudio.utils.StatusBarUtil;
 import com.studyproject.studystudio.view.MovingImageView;
 import com.studyproject.studystudio.view.MovingViewAnimator;
+
+import org.intellij.lang.annotations.Language;
 
 
 /**
@@ -52,6 +58,21 @@ public class MainActivity extends BaseActivity {
         if (navigationMenuView != null) {
             navigationMenuView.setVerticalScrollBarEnabled(false);
         }
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_camera) {
+            } else if (itemId == R.id.nav_gallery) {
+            } else if (itemId == R.id.nav_slideshow) {
+            } else if (itemId == R.id.nav_manage) {
+                Intent intent=new Intent(this, LanguageActivity.class);
+                startActivity(intent);
+            } else if (itemId == R.id.nav_share) {
+            } else if (itemId == R.id.nav_send) {
+            }
+            item.setCheckable(false);
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        });
 
        // 添加DrawerLayout监听器，这里根据DrawerLayout的回调方法实现HeaderView的动画效果
        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
